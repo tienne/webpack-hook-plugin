@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/tienne/webpack-hook-plugin/issues"
   },
-  "homepage": "https://github.com/tienne/webpack-shell-plugin",
+  "homepage": "https://github.com/tienne/webpack-hook-plugin",
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-external-helpers": "^7.0.0",
