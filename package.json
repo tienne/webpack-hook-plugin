@@ -2,8 +2,8 @@
   "name": "webpack-hook-plugin",
   "version": "0.0.1",
   "description": "Run shell commands before and after webpack builds",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "webpack --mode development",
     "test:dev": "npm run webpack-dev-server",
