@@ -1,5 +1,6 @@
-import {spawn, exec, ChildProcess} from 'child_process';
+import {spawn, exec, ChildProcess, ExecException} from 'child_process';
 import * as os from 'os';
+import {Compiler} from 'webpack';
 
 interface HookPluginOptions {
   onBuildStart: string[];
@@ -26,27 +27,28 @@ class WebpackHookPlugin {
     this.options = this.mergeOptions(options, defaultOptions);
   }
 
-  puts(error) {
+  puts(error: ExecException|null) {
     if (error) {
       throw error;
     }
   }
 
   spreadStdoutAndStdErr(proc: ChildProcess) {
-    proc.stdout.pipe(process.stdout);
-    proc.stderr.pipe(process.stdout);
+    if (proc.stderr) {
+      proc.stderr.pipe(process.stdout);
+    }
+
+    if (proc.stdout) {
+      proc.stdout.pipe(process.stdout);
+    }
   }
 
-  serializeScript(script) {
-    if (typeof script === 'string') {
-      const [command, ...args] = script.split(' ');
-      return {command, args};
-    }
-    const {command, args} = script;
+  serializeScript(script: string) {
+    const [command, ...args] = script.split(' ');
     return {command, args};
   }
 
-  handleScript(script) {
+  handleScript(script: string) {
     if (os.platform() === 'win32' || this.options.safe) {
       this.spreadStdoutAndStdErr(exec(script, this.puts));
     } else {
@@ -59,13 +61,13 @@ class WebpackHookPlugin {
   mergeOptions(options: HookPluginOptions, defaults: HookPluginOptions) {
     for (const key in defaults) {
       if (options.hasOwnProperty(key)) {
-        defaults[key] = options[key];
+        (defaults as any)[key] = (options as any)[key];
       }
     }
     return defaults;
   }
 
-  apply(compiler) {
+  apply(compiler: Compiler) {
 
     compiler.hooks.compilation.tap('WebpackHookPlugin', (compilation) => {
       if (this.options.onBuildStart.length) {
@@ -112,4 +114,4 @@ class WebpackHookPlugin {
   }
 }
 
-export = WebpackHookPlugin;
+export default WebpackHookPlugin;
