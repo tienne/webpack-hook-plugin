@@ -3,12 +3,12 @@ import * as os from 'os';
 import {Compiler} from 'webpack';
 
 interface HookPluginOptions {
-  onBuildStart: string[];
-  onBuildEnd: string[],
-  onBuildExit: string[],
-  onCompile: string[],
-  dev: boolean,
-  safe: boolean
+  onBuildStart?: string[];
+  onBuildEnd?: string[],
+  onBuildExit?: string[],
+  onCompile?: string[],
+  dev?: boolean,
+  safe?: boolean
 }
 
 const defaultOptions: HookPluginOptions = {
@@ -70,7 +70,7 @@ class WebpackHookPlugin {
   apply(compiler: Compiler) {
 
     compiler.hooks.compilation.tap('WebpackHookPlugin', (compilation) => {
-      if (this.options.onBuildStart.length) {
+      if (this.options.onBuildStart && this.options.onBuildStart.length) {
         console.log('Executing pre-build scripts');
         for (let ii = 0; ii < this.options.onBuildStart.length; ii += 1) {
           this.handleScript(this.options.onBuildStart[ii]);
@@ -82,7 +82,7 @@ class WebpackHookPlugin {
     });
 
     compiler.hooks.watchRun.tap('WebpackHookPlugin', () => {
-      if (this.options.onCompile.length) {
+      if (this.options.onCompile && this.options.onCompile.length) {
         console.log('Executing compile scripts');
         for (let ii = 0; ii < this.options.onCompile.length; ii += 1) {
           this.handleScript(this.options.onCompile[ii]);
@@ -91,7 +91,7 @@ class WebpackHookPlugin {
     });
 
     compiler.hooks.afterEmit.tapAsync('WebpackHookPlugin', (compilation, callback) => {
-      if (this.options.onBuildEnd.length) {
+      if (this.options.onBuildEnd && this.options.onBuildEnd.length) {
         console.log('Executing post-build scripts');
         for (let ii = 0; ii < this.options.onBuildEnd.length; ii += 1) {
           this.handleScript(this.options.onBuildEnd[ii]);
@@ -104,7 +104,7 @@ class WebpackHookPlugin {
     });
 
     compiler.hooks.done.tap('WebpackHookPlugin', () => {
-      if (this.options.onBuildExit.length) {
+      if (this.options.onBuildExit && this.options.onBuildExit.length) {
         console.log('Executing additional scripts before exit');
         for (let ii = 0; ii < this.options.onBuildExit.length; ii += 1) {
           this.handleScript(this.options.onBuildExit[ii]);
