@@ -2,9 +2,9 @@
   "compilerOptions": {
     "declaration": true,
     // Target latest version of ECMAScript.
-    "target": "esnext",
+    "target": "es5",
     // Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'.
-    "module": "esnext",
+    "module": "commonjs",
     // Search under node_modules for non-relative imports.
     "moduleResolution": "node",
     // Don't emit; allow Babel to transform files.
@@ -12,13 +12,11 @@
     "pretty": true,
     // Enable strictest settings like strictNullChecks & noImplicitAny.
     "strict": true,
-    // Import non-ES modules as default imports.
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "outDir": "./dist"
   },
-  "include": ["src"],
+  "include": ["src/**/*"],
   "exclude": ["dist", "node_modules", "test"]
 }

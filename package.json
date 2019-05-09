@@ -1,6 +1,6 @@
 {
   "name": "webpack-hook-plugin",
-  "version": "0.0.4",
+  "version": "0.0.8",
   "description": "Run shell commands before and after webpack builds",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
