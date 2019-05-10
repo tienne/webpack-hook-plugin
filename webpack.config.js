@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const WebpackHookPlugin = require('./dist');
+const WebpackHookPlugin = require('./dist/webpack-hook-plugin.umd');
 
 module.exports = {
   watch: true,

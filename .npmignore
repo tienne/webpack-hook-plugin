@@ -1,4 +1,10 @@
 .DS_Store
 .git*
 .idea
-test/
+test/**/*
+src/**/*
+rollup.config.ts
+test.js
+tsconfig.json
+webpack.config.js
+.rpt2_cache

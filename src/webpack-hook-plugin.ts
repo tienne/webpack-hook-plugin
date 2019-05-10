@@ -20,7 +20,7 @@ const defaultOptions: HookPluginOptions = {
   safe: false
 };
 
-class WebpackHookPlugin {
+export default class WebpackHookPlugin {
   options: HookPluginOptions;
 
   constructor(options: HookPluginOptions) {
@@ -113,5 +113,3 @@ class WebpackHookPlugin {
     });
   }
 }
-
-export default WebpackHookPlugin;

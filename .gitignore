@@ -3,3 +3,4 @@ npm-debug.log
 *.swf
 .idea/
 dist/
+.rpt2_cache
