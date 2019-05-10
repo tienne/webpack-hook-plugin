@@ -1,16 +1,18 @@
 {
   "name": "webpack-hook-plugin",
-  "version": "0.0.14",
+  "version": "1.0.2",
   "description": "Run shell commands before and after webpack builds",
-  "main": "dist/lib/webpack-hook-plugin.js",
+  "main": "dist/webpack-hook-plugin.umd.js",
   "module": "dist/webpack-hook-plugin.es5.js",
   "typings": "dist/types/webpack-hook-plugin.d.ts",
   "scripts": {
+    "clean": "rimraf dist",
     "test": "webpack --mode development",
     "test:dev": "npm run webpack-dev-server",
     "build": "tsc --module commonjs && rollup -c rollup.config.ts",
     "webpack": "webpack --progress",
-    "webpack-dev-server": "webpack-dev-server --progress"
+    "webpack-dev-server": "webpack-dev-server --progress",
+    "deploy": "npm run clean && npm run build && npm publish"
   },
   "repository": {
     "type": "git",
