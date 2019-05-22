@@ -114,5 +114,9 @@ class WebpackHookPlugin {
   }
 }
 
-module.exports =  WebpackHookPlugin;
+// to generate type definitions
 export default WebpackHookPlugin;
+// to support CommonJS
+module.exports =  WebpackHookPlugin;
+// to support ES6 default import
+module.exports.default = module.exports;
