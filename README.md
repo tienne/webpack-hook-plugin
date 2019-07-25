@@ -76,6 +76,6 @@ Once the build finishes, a child process is spawned firing both a python and nod
 * `dev`: switch for development environments. This causes scripts to execute once. Useful for running HMR on webpack-dev-server or webpack watch mode. **Default: true**
 * `safe`: switches script execution process from spawn to exec. If running into problems with spawn, turn this setting on. **Default: false**
 
-### etc
+### Etc
 
 If this plugin is helpful, please click start to support it.
