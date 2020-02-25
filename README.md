@@ -4,6 +4,8 @@ This plugin allows you to run any shell commands before or after webpack builds.
 
 Goes great with running cron jobs, reporting tools, or tests such as selenium, protractor, phantom, ect.
 
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Ftienne%2Fwebpack-hook-plugin)](https://hits.seeyoufarm.com)
+
 ## Installation
 
 `npm install --save-dev webpack-hook-plugin`
