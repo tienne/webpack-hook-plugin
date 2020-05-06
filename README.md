@@ -80,4 +80,4 @@ Once the build finishes, a child process is spawned firing both a python and nod
 
 ### Etc
 
-If this plugin is helpful, please click start to support it.
+If this plugin is helpful, please click star to support it.
